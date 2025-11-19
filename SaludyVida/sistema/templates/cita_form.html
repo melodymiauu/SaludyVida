@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Cita{% endblock %}
+
+{% block content %}
+<h2>Crear Cita</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Guardar</button>
+    <a href="{% url 'cita_list' %}">Cancelar</a>
+</form>
+
+{% endblock %}

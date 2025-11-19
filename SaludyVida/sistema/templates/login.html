@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-4 mx-auto mt-5 p-4 card shadow">
+    <h3 class="text-center text-primary">Iniciar Sesión</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_username">Correo</label>
+            <input type="email" name="username" class="form-control" autofocus required placeholder="Ingresar su correo">
+        </div>
+
+        <div class="mb-3">
+            <label for="id_password">Contraseña</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
+
+        <button class="btn btn-primary w-100" type="submit">Ingresar</button>
+    </form>
+
+</div>
+{% endblock %}

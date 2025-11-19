@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Listado de Médicos</h2>
+    <a href="{% url 'medico_create' %}" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i> Crear nuevo médico
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">RUT</th>
+                        <th scope="col">Nombre Completo</th>
+                        <th scope="col">Especialidad</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for medico in object_list %}
+                    <tr>
+                        <td>{{ medico.rut }}</td>
+
+                        <td class="fw-bold">{{ medico.nombre_completo }}</td>
+                        
+                        <td>{{ medico.get_especialidad_display }}</td>
+                        
+                        <td class="text-center">
+                            <a href="{% url 'medico_update' medico.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{% url 'medico_delete' medico.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-4">
+                            <p class="text-muted mb-0">No hay médicos registrados aún.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

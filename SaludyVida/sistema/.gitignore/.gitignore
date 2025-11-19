@@ -1,0 +1,23 @@
+Django
+
+*.log
+*.pot
+*.pyc
+pycache/
+local_settings.py
+db.sqlite3
+media/
+
+Entornos virtuales (IMPORTANTE para tu entrega)
+
+venv/
+env/
+.env
+.venv/
+
+Windows y Editores
+
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/

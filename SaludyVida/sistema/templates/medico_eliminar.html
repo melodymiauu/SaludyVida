@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Médico{% endblock %}
+
+{% block content %}
+<h2>¿Estás seguro de que deseas eliminar este médico?</h2>
+
+<p><strong>{{ object.nombre_completo }}</strong></p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'medico_list' %}">Cancelar</a>
+</form>
+{% endblock %}
